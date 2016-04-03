@@ -8,6 +8,13 @@ module.exports = {
     }
     files: [
       {
+        cwd: '<%= dir.includes %>'
+        expand: true
+        src: [ '**/*'
+        ]
+        dest: '<%= dir.archive_folder %>/<%= dir.includes %>'
+      }
+      {
         cwd: '<%= dir.vendor %>/plugin-updates'
         expand: true
         src: [ '**/*'
