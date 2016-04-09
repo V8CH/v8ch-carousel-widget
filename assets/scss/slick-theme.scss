@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// Local variable overrides
+@import "slick-theme-settings";
+
+// Slick default theme
+@import "../../bower_components/slick-carousel/slick/slick-theme.scss";
+
+.slick-prev,
+.slick-next {
+  height: 32px;
+  width: 32px;
+  &:before {
+    font-size: 32px;
+  }
+}
+
+.slick-prev {
+  left: 8px;
+  [dir="rtl"] & {
+    right: 8px;
+  }
+}
+
+.slick-next {
+  right: 8px;
+  [dir="rtl"] & {
+    left: 8px;
+  }
+}

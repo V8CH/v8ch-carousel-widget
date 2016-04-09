@@ -1,5 +1,14 @@
 default:
-  - 'dist'
+  - 'dev'
+build-dev:
+  - 'clean:build'
+  - 'copy:build'
+  - 'sass'
+  - 'coffee'
+  - 'postcss'
+dev:
+  - 'build-dev'
+  - 'concurrent:dev'
 dist:
   - 'clean:dist'
   - 'compress:plugin'

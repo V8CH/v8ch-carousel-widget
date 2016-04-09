@@ -9,8 +9,13 @@ module.exports = (grunt) ->
         dir: {
           assets: 'assets'
           archive_folder: 'v8ch-carousel-widget'
+          bower: 'bower_components'
+          css: 'assets/css'
           dist: 'dist'
           dist_filename: 'v8ch-card-widget-0_1.zip'
+          fonts: 'assets/fonts'
+          img: 'assets/images'
+          js: 'assets/js'
           includes: 'includes'
           vendor: 'vendor'
           views: 'views'
