@@ -6,6 +6,10 @@
 // Slick default theme
 @import "../../bower_components/slick-carousel/slick/slick-theme.scss";
 
+.slick-slider {
+  margin-bottom: 0;
+}
+
 .slick-prev,
 .slick-next {
   height: 32px;
@@ -27,4 +31,8 @@
   [dir="rtl"] & {
     left: 8px;
   }
+}
+
+.slick-dots {
+  position: static;
 }
