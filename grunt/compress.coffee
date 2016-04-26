@@ -8,11 +8,35 @@ module.exports = {
     }
     files: [
       {
+        cwd: '<%= dir.assets %>/css'
+        expand: true
+        src: [ '**/*' ]
+        dest: '<%= dir.archive_folder %>/<%= dir.assets %>/css'
+      }
+      {
+        cwd: '<%= dir.assets %>/fonts'
+        expand: true
+        src: [ '**/*' ]
+        dest: '<%= dir.archive_folder %>/<%= dir.assets %>/fonts'
+      }
+      {
+        cwd: '<%= dir.assets %>/images'
+        expand: true
+        src: [ '**/*' ]
+        dest: '<%= dir.archive_folder %>/<%= dir.assets %>/images'
+      }
+      {
         cwd: '<%= dir.includes %>'
         expand: true
         src: [ '**/*'
         ]
         dest: '<%= dir.archive_folder %>/<%= dir.includes %>'
+      }
+      {
+        cwd: '<%= dir.js %>/'
+        expand: true
+        src: [ '**/*' ]
+        dest: '<%= dir.archive_folder %>/<%= dir.js %>'
       }
       {
         cwd: '<%= dir.vendor %>/plugin-updates'
