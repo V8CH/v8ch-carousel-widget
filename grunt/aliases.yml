@@ -10,5 +10,5 @@ dev:
   - 'build-dev'
   - 'concurrent:dev'
 dist:
-  - 'clean:dist'
+  - 'build-dev'
   - 'compress:plugin'
