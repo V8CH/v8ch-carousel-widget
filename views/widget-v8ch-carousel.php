@@ -20,7 +20,7 @@
 			<div id="slide-<?php echo $count; ?>" class="carousel-slide">
 
 				<figure class="full-width" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-					<?php the_post_thumbnail( 'aspect' ); ?>
+					<?php the_post_thumbnail( 'aspect@4x' ); ?>
 					
 					<figcaption itemprop="caption description">
 						<h4 itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
