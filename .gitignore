@@ -1,0 +1,7 @@
+/assets/css/*
+/assets/fonts/*
+/assets/images/*
+/assets/js/*
+/bower_components
+/dist/*.zip
+/node_modules
