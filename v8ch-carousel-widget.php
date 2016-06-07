@@ -16,7 +16,6 @@ Domain Path:
 // Security check
 defined( 'ABSPATH' ) or die( 'Fail on direct access' );
 
-
 require 'includes/v8ch-carousel-post-type.php';
 
 // Load widget
