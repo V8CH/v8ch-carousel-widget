@@ -1,0 +1,14 @@
+{
+  "name": "v8ch-carousel-widget",
+  "description": "Widget for creating carousels. Slides taken from custom post type. Widget pulls slides by carousels taxonomy.",
+  "main": "",
+  "authors": [
+    "Samai Kaewprasoet"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/V8CH/v8ch-carousel-widget",
+  "private": true,
+  "devDependencies": {
+    "slick-carousel": "^1.6.0"
+  }
+}

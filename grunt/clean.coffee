@@ -20,6 +20,7 @@ module.exports = {
         dot: true
         src: [
           '<%= dir.dist %>/**/*'
+          '!<%= dir.dist %>/v8ch-carousel-widget.json'
         ]
       }
     ]
