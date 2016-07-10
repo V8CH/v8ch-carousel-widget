@@ -1,10 +1,10 @@
 <?php
 
 /*
-Plugin Name: V8CH Carousel Widget
+Plugin Name: V8CH Rice Paper Carousel Widget
 Plugin URI: http://www.v8ch.com
-Description: Widget for creating layout carousels from a custom post type.
-Version: 0.1.0
+Description: Widget for creating layout carousels from a custom post type. Designed to work with the Rice Paper theming framework.
+Version: 0.1.1-b1
 Author: Samai Kaewprasoet
 Author URI: http://www.v8ch.com
 License: GPL3
