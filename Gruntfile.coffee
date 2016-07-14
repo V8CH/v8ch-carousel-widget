@@ -20,14 +20,18 @@ module.exports = (grunt) ->
     css: 'assets/css'
     dist: 'dist'
     fonts: 'assets/fonts'
+    functions: 'assets/functions'
+    includes: 'includes'
     img: 'assets/images'
     js: 'assets/js'
     media: 'assets/media'
+    parts: 'parts'
     pkg: pkg
+    plugins: '../../plugins'
     scss: 'assets/scss'
     src: 'src'
+    translation: 'assets/translation'
     vendor: 'vendor'
-    views: 'views'
   }
   if parentPath?
     dir.parent = parentPath # copy task checks for null on this value, so add it here instead of declaring it
@@ -49,12 +53,50 @@ module.exports = (grunt) ->
     'slick-theme.css': dir.scss + '/slick-theme.scss'
   }
 
-  ### Third, compile cssminFiles property using format of output filename: src ###
+  ### Third, compile BrowserSync files ###
+  ### Note: First set is watched on every theme; shouldn't be necessary to change these on a standard build ###
+  browserSyncFiles = [
+    'assets/css/prism.css'
+    'assets/css/site.css'
+    'assets/functions/*.php'
+    'assets/js/*.js'
+    'parts/*.php'
+    '*.php'
+  ]
+  ### Note: Parent files only watched on child themes; shouldn't be necessary to change these on a standard build ###
+  if parentPath?
+    browserSyncFiles.concat(
+      [
+        dir.parent + '/assets/css/*.css'
+        dir.parent + '/assets/js/*.js'
+        dir.parent + '/assets/functions/*.php'
+        dir.parent + '/parts/*.php'
+        dir.parent + '/*.php'
+      ]
+    )
+  ### Note: Additions specific to this theme; add files as necessary here ###
+  browserSyncFiles.concat(
+    [
+      # dir.parent + '/path/to/file'
+    ]
+  )
+
+  ### Fourth, compile cssminFiles property using format of output filename: src ###
   cssminFiles = {}
   cssminFiles[dir.css + '/v8ch-rice-paper-carousel-widget.min.css'] = [
     dir.css + '/slick.css'
     dir.css + '/slick-theme.css'
   ]
+
+  ### Fifth, compile docFiles property using format of post ID: markup doc path ###
+  docFiles = {
+    '118': 'doc/rice-paper-carousel-widget.md'
+    '161': 'doc/using.md'
+    '162': 'doc/carousel-slides.md'
+    '163': 'doc/carousel-tags.md'
+    '164': 'doc/widget-configuration.md'
+    '165': 'doc/layout-templates.md'
+  }
 
   ###
   * All required values setup now, so fire up Grunt
@@ -66,12 +108,13 @@ module.exports = (grunt) ->
       distIncludes: [
         dir.css
         dir.fonts
-        dir.functions
+        dir.includes
         dir.img
         dir.js
         dir.vendor
         dir.views
       ]
+      docFiles: docFiles
       imageAssets: imageAssets
       sassAssets: sassAssets
     }
