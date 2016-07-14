@@ -1,4 +1,14 @@
 <?php echo $before_widget . PHP_EOL; ?>
+
+<?php
+/**
+ * 
+ * The first block of PHP here is the query that pulls the carousel content. In most cases, it will work correctly without modification.
+ * But, as it's a standard WordPress query, it can be adjusted for special requirements.
+ *
+ */
+?>
+
 <?php if ( $instance['tax_slug'] != '' ) :
 	$the_query = new WP_Query( array(
 		'post_type'      => 'slide',
@@ -12,6 +22,18 @@
 		'posts_per_page' => -1,
 	) );
 	?>
+
+<?php
+/**
+ * 
+ * The layout template. Several of the variables are required for the plugin to build the widget HTML correctly:
+ *
+ *   - $carousel_id: Required for Slick to identify the HTML block and create the carousel.
+ *   - $data_slick: Required configuration options for Slick.
+ *   - $count: Required for the Slick option showDots.
+ *
+ */
+?>
 
 	<?php if ( $the_query->have_posts() ) : ?>
 	<div id="<?php echo $carousel_id; ?>" class="v8ch-carousel" data-slick='<?php echo $data_slick; ?>' itemscope itemtype="http://schema.org/ImageGallery">
