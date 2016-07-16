@@ -5,6 +5,7 @@
   "version" : "0.1.1-b1",
   "author" : "Samai Kaewprasoet",
   "sections" : {
-    "description" : ""
-  }
+    "description" : "The Rice Paper carousel widget encapsulates a simple and flexible way to build carousel layout components with image, text or any other content that a standard WordPress post can hold. A custom post type working like a standard WordPress post defines each slide, and a custom taxonomy of categories and tags defines collections of slides grouped into carousels. A single carousel slide easily works with several carousel collections."
+  },
+  "homepage": "http://www.v8ch.com/plugins/rice-paper-carousel-widget/"
 }
