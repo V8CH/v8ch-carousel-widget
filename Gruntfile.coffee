@@ -98,6 +98,11 @@ module.exports = (grunt) ->
     '165': 'doc/layout-templates.md'
   }
 
+  ### Sixth, configure postcss src path ###
+  postcssSrc = [
+    dir.css + '/slick-theme.css'
+  ]
+
   ###
   * All required values setup now, so fire up Grunt
   ###

@@ -3,12 +3,17 @@ default:
 build-dev:
   - 'clean:build'
   - 'copy:build'
-  - 'sass'
-  - 'coffee'
-  - 'postcss'
+  - 'sass:build'
+  - 'postcss:build'
+  - 'coffee:build'
+build-dist:
+  - 'clean:build'
+  - 'copy:build'
+  - 'sass:build'
+  - 'postcss:build'
+  - 'coffee:build'
+  - 'cssmin:build'
+  - 'compress:plugin'
 dev:
   - 'build-dev'
   - 'concurrent:dev'
-dist:
-  - 'build-dev'
-  - 'compress:plugin'
