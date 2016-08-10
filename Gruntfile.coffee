@@ -10,8 +10,11 @@ module.exports = (grunt) ->
   parentPath = '../../themes/rice-paper' # Flags this project as a plugin related to a theme
 
   ###
-  Values for Grunt template macros and project filesystem locations
-  Shouldn't be necessary to change these on a standard build
+   * ------------------
+   * Template Macros
+   * ------------------
+   *
+   * Shouldn't be necessary to change these on a standard build
   ###
   dir = {
     archive_folder: pkg.name
@@ -37,24 +40,64 @@ module.exports = (grunt) ->
     dir.parent = parentPath # copy task checks for null on this value, so add it here instead of declaring it
 
   ###
-  *
-  * Shared properties and filesets used by tasks
-  *   Most of the config action happens here
-  *
+   *
+   * Shared properties and filesets used by tasks
+   *   Most of the config action happens here
+   *
+   *   1. grunt-conrib-imagemin
+   *   2. grunt-sass
+   *   3. grunt-browserSync
+   *   4. grunt-cssmin
+   *   5. grunt-shell (for doc pages)
+   *
   ###
 
-  ### First, compile imageAssets property using format of cwd: src ###
-  imageAssets = {}
-  imageAssets[dir.bower + '/slick-carousel/slick'] = ['ajax-loader.gif']
+  ###
+   * ------------------
+   * Copy Bower Files
+   * ------------------
+   *
+   * Format is asset type (css|fonts|js): cwd: { [ filename ] }
+   *   Add optional param parent: true to value object
+  ###
 
-  ### Second, compile sassAssets property using format of output filename: src ###
+  bowerAssets = {
+    fonts: {
+      '/slick-carousel/slick/fonts': {
+        files: ['**/*']
+      }
+    }
+    img: {
+      '/slick-carousel/slick': {
+        files: ['ajax-loader.gif']
+      }
+    }
+    js: {
+      '/slick-carousel/slick': {
+        files: ['slick.js']
+      }
+    }
+  }
+
+  ###
+   * ------------------
+   * SASS
+   * ------------------
+   *
+   * Format is output filename: src
+  ###
   sassAssets = {
     'slick.css': dir.bower + '/slick-carousel/slick/slick.scss'
     'slick-theme.css': dir.scss + '/slick-theme.scss'
   }
 
-  ### Third, compile BrowserSync files ###
-  ### Note: First set is watched on every theme; shouldn't be necessary to change these on a standard build ###
+  ###
+   * ------------------
+   * Browser-Sync
+   * ------------------
+   *
+   * First set is watched on every theme; shouldn't be necessary to change these on a standard build
+  ###
   browserSyncFiles = [
     'assets/css/prism.css'
     'assets/css/site.css'
@@ -81,14 +124,26 @@ module.exports = (grunt) ->
     ]
   )
 
-  ### Fourth, compile cssminFiles property using format of output filename: src ###
+  ###
+   * ------------------
+   * Cssmin
+   * ------------------
+   *
+   * Format is output filename: src
+  ###
   cssminFiles = {}
   cssminFiles[dir.css + '/v8ch-rice-paper-carousel-widget.min.css'] = [
     dir.css + '/slick.css'
     dir.css + '/slick-theme.css'
   ]
 
-  ### Fifth, compile docFiles property using format of post ID: markup doc path ###
+  ###
+   * ------------------
+   * Update Doc Files
+   * ------------------
+   *
+   * Format is post ID: markup doc path
+  ###
   docFiles = {
     '118': 'doc/rice-paper-carousel-widget.md'
     '161': 'doc/using.md'
@@ -98,16 +153,14 @@ module.exports = (grunt) ->
     '165': 'doc/layout-templates.md'
   }
 
-  ### Sixth, configure postcss src path ###
-  postcssSrc = [
-    dir.css + '/slick-theme.css'
-  ]
-
   ###
-  * All required values setup now, so fire up Grunt
+   * ------------------
+   * Grunt Initialization
+   * ------------------
   ###
   grunt.initConfig(
     {
+      bowerAssets: bowerAssets
       cssminFiles: cssminFiles
       dir: dir
       distIncludes: [
@@ -120,7 +173,6 @@ module.exports = (grunt) ->
         dir.views
       ]
       docFiles: docFiles
-      imageAssets: imageAssets
       sassAssets: sassAssets
     }
   )
