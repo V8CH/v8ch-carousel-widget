@@ -2,13 +2,11 @@
 
 /*
 Plugin Name: V8CH Carousel Widget
-Plugin URI: http://www.v8ch.com
 Description: Widget for creating layout carousels from a custom post type.
-Version: 0.1.0
-Author: Samai Kaewprasoet
-Author URI: http://www.v8ch.com
+Version: 0.1.1
+Author: Robert Pratt
 License: GPL3
-License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
+License URI: https://opensource.org/licenses/GPL-3.0
 Text Domain:
 Domain Path:
 */
@@ -35,7 +33,7 @@ $v8ch_carousel_widget_updates = PucFactory::buildUpdateChecker(
 
 class V8CH_Carousel_Widget extends WP_Widget {
 
-	const VERSION = '0.1.0';
+	const VERSION = '0.1.1';
 	protected $configs;
 
 	/**
